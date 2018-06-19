@@ -23,6 +23,9 @@ $(document).ready(()=>{
        if($('.warning').length>0) accion = 'actualizar';
        $('.warning').removeClass('warning');
        socket.emit(accion,data);
+       $(this).closest('tr').animate({
+            color:"red"
+        },500);
        $('#formulario').trigger('reset');
        return true;
     });
@@ -83,6 +86,7 @@ $(document).ready(()=>{
             $row.find('td:eq(3)').html(data.timezone);
             $row.find('td:eq(4)').html(data.locale);
             $row.find('td:eq(5)').html(data.profile_pic);
+
         }
     };
     socket.on('listar',(data)=>{
