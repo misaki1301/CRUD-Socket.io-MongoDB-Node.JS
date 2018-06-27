@@ -9,7 +9,8 @@ var user_schema = new Schema({
     last_name:String,
     timezone:String,
     locale:String,
-    profile_pic:String
+    profile_pic:String,
+    state:Boolean
 });
 
 user_model = mongoose.model('user',user_schema,'users');
@@ -22,8 +23,17 @@ module.exports={
             last_name:data.last_name,
             timezone:data.timezone,
             locale: data.locale,
-            profile_pic:data.profile_pic
+            profile_pic:data.profile_pic,
+            state: data.state
         };
+        if (data.state=='No'){
+            item.state=false;
+        }else if(data.state=='Si'){
+            item.state=true;
+        }else{
+            console.log("no se ha podido setear el boolean")
+        }
+        console.log(item);
         var nuevo = new user_model(item).save();
         callback(item);
     },

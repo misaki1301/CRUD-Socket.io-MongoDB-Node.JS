@@ -8,8 +8,10 @@ $(document).ready(()=>{
            last_name: $('#last_name').val(),
            timezone: $('#timezone').val(),
            locale: $('#locale').val(),
-           profile_pic:$('#profile_pic').val()
+           profile_pic:$('#profile_pic').val(),
+           state:$('#state').val()
        };
+       console.log("valor de state"+data.state);
        if(data._id===''){
            $('#_id').focus();
            return alert('Debe ingresar un ID');
@@ -50,6 +52,7 @@ $(document).ready(()=>{
             $row.append('<td>' + data.timezone + '</td>');
             $row.append('<td>' + data.locale + '</td>');
             $row.append('<td>' + data.profile_pic + '</td>');
+            $row.append('<td>'+data.state.toString()+'</td>');
             $row.append('<td><button class="btn btn-success btn-sm" name="btnAct">Actualizar</button></td>');
             $row.append('<td><button class="btn btn-danger btn-sm" name="btnEli">Eliminar</button></td>');
             $row.data('data', data);

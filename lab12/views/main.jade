@@ -11,7 +11,7 @@ block content
                 input#first_name.form-control(type="text", placeholder="Su nombre")
             .form-group
                 label(for="last_name") Apellidos
-                input#last_name.form-control(type="text",placeholder="Su apellido")
+                input#last_name.form-control(type="text", placeholder="Su apellido")
             .form-group
                 label(for="timezone") Región
                 input#timezone.form-control(type="text", placeholder="-5", value="-5")
@@ -21,6 +21,11 @@ block content
             .form-group
                 label(for="profile_pic") Foto
                 input#profile_pic.form-control(type="text",placeholder="URl de fotos")
+            .form-group
+                label(for="state") ¿Es mayor de edad?
+                select#state.form-control
+                    option(value="Si") Si
+                    option(value="No") No
             button.btn.btn-default(type="submit") Guardar
     .col-xs-8
         table.table.table-striped.table-bordered.table-hover
@@ -32,4 +37,5 @@ block content
                     th  Zona Horaria
                     th  Idioma
                     th  Foto
+                    th  Mayor de Edad
             tbody
